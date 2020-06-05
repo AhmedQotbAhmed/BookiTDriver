@@ -41,8 +41,9 @@ dependencies {
     //MAP
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.google.android.gms:play-services-location:17.0.0'
-    implementation 'com.google.firebase:firebase-auth:19.3.1'
+
     //Firebase
+    implementation 'com.google.firebase:firebase-auth:19.3.1'
     implementation 'com.google.firebase:firebase-database:19.3.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
@@ -72,6 +73,18 @@ dependencies {
 
     //location dictator
     implementation 'com.firebase:geofire-java:3.0.0'
+
+    //sport dialog
+    implementation 'com.github.d-max:spots-dialog:0.7@aar'
+
+    //materialAnimation Switch
+    implementation  'com.github.glomadrian:MaterialAnimatedSwitch:1.1@aar'
+
+    //location dictator
+    implementation 'com.firebase:geofire-java:3.0.0'
+
+
+
 
 
 }
