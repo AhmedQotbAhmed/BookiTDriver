@@ -180,10 +180,6 @@ public class   MainActivity extends AppCompatActivity implements View.OnClickLis
 
             } else {
 
-                loadingBar.setTitle("Login Account");
-                loadingBar.setMessage("Please wait, while we are checking the credentials");
-                loadingBar.setCanceledOnTouchOutside(false);
-                loadingBar.show();
                 AllowAccessToAccount(email_Str, password_Str);
             }
         }

@@ -11,6 +11,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -83,8 +84,12 @@ dependencies {
     //location dictator
     implementation 'com.firebase:geofire-java:3.0.0'
 
+    //retrofit
 
+    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.3.0'
 
-
+//
+    implementation 'com.android.support:multidex:1.0.3'
 
 }
