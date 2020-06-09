@@ -265,6 +265,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback,
                 @Override
                 public void onResponse(Call<String> call, Response<String> response) {
 
+
                     try {
                         JSONObject jsonObject= new JSONObject(response.body().toString());
                         JSONArray jsonArray= jsonObject.getJSONArray("routes");
@@ -276,6 +277,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback,
                             polyLineList = decodePoly(polyline);
                         }
                         //adjusting bounds
+
                         LatLngBounds.Builder builder = new LatLngBounds.Builder();
                         for (LatLng latLng:polyLineList){
                             builder.include( latLng);
@@ -303,6 +305,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback,
                                     .title("Pickup Location"));
 
                             //Animation
+
                             ValueAnimator polyLineAnimator = ValueAnimator.ofInt(0, 100);
                             polyLineAnimator.setDuration(2000);
                             polyLineAnimator.setInterpolator(new LinearInterpolator());
@@ -335,6 +338,8 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback,
 
 
 
+
+
                         }
 
                     } catch (JSONException e) {
@@ -342,6 +347,8 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback,
                     }
 
                 }
+
+
 
                 @Override
                 public void onFailure(Call<String> call, Throwable t) {
@@ -380,6 +387,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback,
             shift = 0;
             result = 0;
             do {
+
                 b = encoded.charAt(index++) - 63;
                 result |= (b & 0x1f) << shift;
                 shift += 5;
@@ -412,6 +420,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback,
 
                 }
                 break;
+
 
             default:
 
@@ -488,6 +497,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback,
         LocationServices.FusedLocationApi.removeLocationUpdates(googleApiClient, this);
     }
 
+
     private void displayLocation() {
 
         if (ActivityCompat.checkSelfPermission(getAppContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
@@ -519,6 +529,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback,
 
 
                                                 //Move Camera to this position
+
                                                 mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 15.0f));
                                                 // draw animation rotate marker
 
@@ -545,6 +556,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback,
          final Handler handler = new Handler();
          final long start = SystemClock.uptimeMillis();
          final float startRotation = mCurrent.getRotation();
+
          final long duration = 1500;
          final Interpolator interpolator = new LinearInterpolator();
         handler.post(new Runnable() {
@@ -582,6 +594,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback,
 
         final ScaleAnimation scaleAnimation = new ScaleAnimation(0.7f, 1.0f, 0.7f, 1.0f, Animation.RELATIVE_TO_SELF, 0.7f, Animation.RELATIVE_TO_SELF, 0.7f);
         scaleAnimation.setDuration(500);
+
         BounceInterpolator bounceInterpolator = new BounceInterpolator();
         scaleAnimation.setInterpolator(bounceInterpolator);
         toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -600,6 +613,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback,
     @Override
     public void onConnected(@Nullable Bundle bundle) {
         displayLocation();
+
         startLocationUpdate();
 
 
@@ -607,6 +621,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback,
 
     @Override
     public void onConnectionSuspended(int i) {
+
         googleApiClient.connect();
 
     }
